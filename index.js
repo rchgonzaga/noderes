@@ -76,8 +76,8 @@ const server = http.createServer((req, res) => {
 })
 
 // Start the server, and have it listening on some port
-server.listen(80, () => {
-  console.log('The server is listegin to port 80')
+server.listen(1025, () => {
+  console.log('The server is listegin to port 1025')
 })
 
 // Define handlers
