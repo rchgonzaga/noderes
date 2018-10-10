@@ -1,0 +1,18 @@
+{
+  "name": "noderes",
+  "version": "1.0.1",
+  "description": "Simple rest",
+  "author": "Rafael Gonzaga <rchgonzaga@gmail.com>",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+  },
+  "engines": {
+    "node": ">= 8.11.1",
+    "npm": ">= 5.6.0"
+  },
+  "browserslist": [
+  ]
+}
