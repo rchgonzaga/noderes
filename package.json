@@ -7,12 +7,15 @@
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "engines": {
     "node": ">= 8.11.1",
     "npm": ">= 5.6.0"
   },
-  "browserslist": [
-  ]
+  "now": {
+    "engines": {
+      "node": ">= 8.11.1"
+    }
+  },
+  "browserslist": []
 }
