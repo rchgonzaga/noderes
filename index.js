@@ -87,7 +87,8 @@ const handlers = {}
 handlers.sampler = (data, cb) => {
   // Callback a http status code and a payload object
   cb(406, {
-    'name': 'Sample handler'
+    'name': 'Sample handler',
+    'data': data
   })
 }
 
