@@ -5,13 +5,35 @@
 
 // Dependecies
 const http = require('http')
+const https = require('https')
 const url = require('url')
 const StringDecoder = require('string_decoder').StringDecoder
 const config = require('./config')
+const fs = require('fs')
 
-// The server should responto to all requests with a string
-const server = http.createServer((req, res) => {
+// The httpServer should responto to all requests with a string
+const httpServer = http.createServer((req, res) => {
+  unifiedServer(req, res)
+})
+// Instantiation the http httpServer
+httpServer.listen(config.httpPort, () => {
+  console.log(`The httpServer is listegin on port ${config.httpPort} in '${config.envName}'`)
+})
 
+// The httpServers should responto to all requests with a string
+const httpsServerOptions = {
+  'key': fs.readFileSync('./https/key.pem'),
+  'cert': fs.readFileSync('./https/cert.pem')
+}
+const httpsServer = https.createServer(httpsServerOptions, (req, res) => {
+  unifiedServer(req, res)
+})
+// Instantiation the http httpsServers
+httpsServer.listen(config.httpsPort, () => {
+  console.log(`The httpServer is listegin on port ${config.httpsPort} in '${config.envName}'`)
+})
+
+const unifiedServer = (req, res) => {
   // Get the url and parse it
   const parsedUrl = url.parse(req.url, true)
 
@@ -74,14 +96,7 @@ const server = http.createServer((req, res) => {
       console.log('Returning this response: ', statusCode, payloadString)
     })
   })
-
-})
-
-// Start the server, and have it listening on some port
-server.listen(config.port, () => {
-  console.log(`The server is listegin to port ${config.port} in '${config.envName}'`)
-})
-
+}
 // Define handlers
 const handlers = {}
 
