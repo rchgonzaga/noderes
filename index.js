@@ -20,18 +20,18 @@ httpServer.listen(config.httpPort, () => {
   console.log(`The httpServer is listegin on port ${config.httpPort} in '${config.envName}'`)
 })
 
-// The httpServers should responto to all requests with a string
-const httpsServerOptions = {
-  'key': fs.readFileSync('./https/key.pem'),
-  'cert': fs.readFileSync('./https/cert.pem')
-}
-const httpsServer = https.createServer(httpsServerOptions, (req, res) => {
-  unifiedServer(req, res)
-})
-// Instantiation the http httpsServers
-httpsServer.listen(config.httpsPort, () => {
-  console.log(`The httpServer is listegin on port ${config.httpsPort} in '${config.envName}'`)
-})
+// // The httpServers should responto to all requests with a string
+// const httpsServerOptions = {
+//   'key': fs.readFileSync('./https/key.pem'),
+//   'cert': fs.readFileSync('./https/cert.pem')
+// }
+// const httpsServer = https.createServer(httpsServerOptions, (req, res) => {
+//   unifiedServer(req, res)
+// })
+// // Instantiation the http httpsServers
+// httpsServer.listen(config.httpsPort, () => {
+//   console.log(`The httpServer is listegin on port ${config.httpsPort} in '${config.envName}'`)
+// })
 
 const unifiedServer = (req, res) => {
   // Get the url and parse it
