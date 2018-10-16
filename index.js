@@ -13,10 +13,8 @@ const fs = require('fs')
 const _data = require('./lib/data')
 
 // Testing
-_data.create('test', 'newFile', {
-  'foo': 'bar'
-}, (err) => {
-  console.log('this was the erro: ', err)
+_data.read('test', 'newFile', (err, data) => {
+  console.log('this was the erro: ', err, data)
 })
 
 // The httpServer should responto to all requests with a string
