@@ -13,22 +13,25 @@ const fs = require('fs')
 const _data = require('./lib/data')
 
 // Testing
-// _data.create('test', 'newFile', {
-//   'foo': 'bar'
-// }, (err) => {
-//   console.log('this was the erro: ', err)
-// })
+_data.create('test', 'newFile', {
+  'foo': 'bar'
+}, (err) => {
+  console.log('this was the erro: ', err)
+})
 
 // // Testing
 // _data.update('test', 'newFile', (err, data) => {
 //   console.log('this was the erro: ', err, data)
 // })
 
-_data.update('test', 'newFile', {
-  'fizz': 'buzz'
-}, (err) => {
-  console.log('this was the erro: ', err)
-})
+// _data.update('test', 'newFile', {
+//   'fizz': 'buzz'
+// }, (err) => {
+//   console.log('this was the erro: ', err)
+// })
+// _data.delete('test', 'newFile', (err) => {
+//   console.log('this was the erro: ', err)
+// })
 
 
 // The httpServer should responto to all requests with a string
