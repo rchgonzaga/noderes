@@ -127,5 +127,6 @@ const unifiedServer = (req, res) => {
 // Define a request router
 const router = {
   'sampler': handlers.sampler,
-  'ping': handlers.ping
+  'ping': handlers.ping,
+  'usrs': handlers.users
 }
