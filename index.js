@@ -12,6 +12,7 @@ const config = require('./config')
 const fs = require('fs')
 const _data = require('./lib/data')
 const handlers = require('./lib/handlers')
+const helpers = require('./lib/helpers')
 
 // Testing
 _data.create('test', 'newFile', {
@@ -95,7 +96,7 @@ const unifiedServer = (req, res) => {
       'queryStringObject': queryStringObject,
       'method': method,
       'headers': headers,
-      'payload': buffer
+      'payload': helpers.parseJsonToObject(buffer)
     }
 
     // Route the request to the handler specified in the router
@@ -128,5 +129,5 @@ const unifiedServer = (req, res) => {
 const router = {
   'sampler': handlers.sampler,
   'ping': handlers.ping,
-  'usrs': handlers.users
+  'users': handlers.users
 }
