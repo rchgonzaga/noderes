@@ -11,6 +11,7 @@ const StringDecoder = require('string_decoder').StringDecoder
 const config = require('./config')
 const fs = require('fs')
 const _data = require('./lib/data')
+const handlers = require('./lib/handlers')
 
 // Testing
 _data.create('test', 'newFile', {
@@ -29,6 +30,7 @@ _data.create('test', 'newFile', {
 // }, (err) => {
 //   console.log('this was the erro: ', err)
 // })
+
 // _data.delete('test', 'newFile', (err) => {
 //   console.log('this was the erro: ', err)
 // })
@@ -120,27 +122,7 @@ const unifiedServer = (req, res) => {
     })
   })
 }
-// Define handlers
-const handlers = {}
-// Sample handler
-handlers.sampler = (data, cb) => {
-  // Callback a http status code and a payload object
-  cb(406, {
-    'name': 'Sample handler',
-    'data': data
-  })
-}
 
-// Sample handler
-handlers.ping = (data, cb) => {
-  // Callback a http status code and a payload object
-  cb(200)
-}
-
-// Not found handler
-handlers.notFound = (data, cb) => {
-  cb(404)
-}
 
 // Define a request router
 const router = {
